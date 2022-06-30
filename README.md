@@ -19,7 +19,7 @@
 const SlideUp = styled.div`
     opacity: ${(props) => (props.isOperation ? 1 : 0)};
     transition-property: all;
-    transition-duration: 1s;
+    transition-duration: 700ms;
     transition-timing-function: ease-out;
     transition-delay: 0ms;
     transform: translateY(${(props) => (props.isOperation ? `${props.offsetY}px` : "0px")});
@@ -39,7 +39,7 @@ const Award = styled(SlideUp)`
 const SlideUp = styled.div`
     opacity: ${(props) => (props.isOperation ? 1 : 0)};
     transition-property: all;
-    transition-duration: 1s;
+    transition-duration: 700ms;
     transition-timing-function: ease-out;
     transition-delay: 0ms;
     transform: translateY(${(props) => (props.isOperation ? `${props.offsetY}px` : "0px")});
@@ -53,6 +53,7 @@ const SlideUp = styled.div`
     * transition-timing-function : 트랜지션 효과를 위한 수치 함수를 지정한다.	
     * transition-delay : 프로퍼티가 변화한 시점과 트랜지션이 실제로 시작하는 사이에 대기하는 시간을 초 단위(s) 또는 밀리 초 단위(ms)로 지정한다	
   * y축으로 움직이게 하기 (transform) : offset가 음수이면 아래서 위로 이동
+  * duration은 700ms, 애니메이션 사이 간격은 100ms로 지정
 <br />
 
 * 숫자 올라가는 등장애니메이션 : 
