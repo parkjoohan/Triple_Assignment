@@ -9,6 +9,7 @@ const Award = styled(SlideUp)`
     height: 70px;
     margin: 50px 50px 50px 630px;
     white-space: nowrap;
+    transition-delay: 200ms;
 `
 
 const PlayStoreImage = styled.div`

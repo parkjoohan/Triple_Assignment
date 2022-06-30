@@ -5,6 +5,7 @@ import SlideUp from './SlideUp';
 const Count = styled(SlideUp)`
     margin-left: 625px;
     padding-top: 130px;
+    transition-delay: 100ms;
 `
 
 const CountFrame = styled.div`

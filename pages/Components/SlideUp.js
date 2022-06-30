@@ -6,8 +6,9 @@ const SlideUp = styled.div`
     opacity: ${(props) => (props.isOperation ? 1 : 0)};
     /* 요소의 속성을 서서히 변화 (transition) */
     transition-property: all;
-    transition-duration: 1s;
+    transition-duration: 700ms;
     transition-timing-function: ease-out;
+    transition-delay: 0ms;
     /* y축으로 움직이게 히기 (transform), offset가 음수이면 아래서 위로 이동 */
     transform: translateY(${(props) => (props.isOperation ? `${props.offsetY}px` : "0px")});
 `
