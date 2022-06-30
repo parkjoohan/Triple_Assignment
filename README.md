@@ -1,34 +1,77 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
+## 프로젝트 실행 방법
 
 ```bash
-npm run dev
-# or
-yarn dev
+1. npm i
+   # or
+   yarn add
+   
+2. npm run dev
+   # or
+   yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<br /><br />
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## 사용한 기술
+**1. Styled-Components**
+* 중복되는 코드를 줄이는 동시 자유로운 커스텀 컴포넌트를 제작하기 위해 사용
+```js
+const SlideUp = styled.div`
+    opacity: ${(props) => (props.isOperation ? 1 : 0)};
+    transition-property: all;
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
+    transition-delay: 0ms;
+    transform: translateY(${(props) => (props.isOperation ? `${props.offsetY}px` : "0px")});
+`
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+const Award = styled(SlideUp)`
+    width: 450px;
+    height: 70px;
+    margin: 50px 50px 50px 630px;
+    white-space: nowrap;
+`
+```
+<br /><br />
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+**2. 애니메이션**
+```js
+const SlideUp = styled.div`
+    opacity: ${(props) => (props.isOperation ? 1 : 0)};
+    transition-property: all;
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
+    transition-delay: 0ms;
+    transform: translateY(${(props) => (props.isOperation ? `${props.offsetY}px` : "0px")});
+`
+```
+* 영역별 등장애니메이션 : opacity, transition, transform을 사용하여 구현
+  * 요소 투명하게 만들기 (opacity) : 등장 시작 신호가 오면 opacity값 변화를 통해 등장
+  * 요소의 속성을 서서히 변화 (transition) 
+    * transition-property : 트랜지션의 대상이 되는 CSS 프로퍼티를 지정한다	
+    * transition-duration : 트랜지션이 일어나는 지속시간(duration)을 초 단위(s) 또는 밀리 초 단위(ms)로 지정한다	
+    * transition-timing-function : 트랜지션 효과를 위한 수치 함수를 지정한다.	
+    * transition-delay : 프로퍼티가 변화한 시점과 트랜지션이 실제로 시작하는 사이에 대기하는 시간을 초 단위(s) 또는 밀리 초 단위(ms)로 지정한다	
+  * y축으로 움직이게 하기 (transform) : offset가 음수이면 아래서 위로 이동
+<br />
 
-## Learn More
+* 숫자 올라가는 등장애니메이션 : 
 
-To learn more about Next.js, take a look at the following resources:
+<br /><br />
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**3. 컴포넌트 분리**
+* 기능별로 개발하고 유지보수를 용이하기 위해 기능별 컴포넌트 분리 후 index.js에서 합쳐 구현
+```js
+export default function Home() {
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  return (
+    <Container>
+      <ContentCotainer>
+        <ContentImage></ContentImage>
+        <Counting></Counting>
+        <Awards></Awards>
+      </ContentCotainer>
+    </Container>
+  )
+}
+```
