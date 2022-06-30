@@ -54,9 +54,6 @@ const SlideUp = styled.div`
     * transition-delay : 프로퍼티가 변화한 시점과 트랜지션이 실제로 시작하는 사이에 대기하는 시간을 초 단위(s) 또는 밀리 초 단위(ms)로 지정한다	
   * y축으로 움직이게 하기 (transform) : offset가 음수이면 아래서 위로 이동
   * duration은 700ms, 애니메이션 사이 간격은 100ms로 지정
-<br />
-
-* 숫자 올라가는 등장애니메이션 : 
 
 <br /><br />
 
